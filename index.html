@@ -80,9 +80,9 @@
     <h1>TodoList</h1>
 
     <form onsubmit="submitTodo(); return false">
-      <input type="text" id="new-todo" placeholder="What needs to be done?">
+      <!-- onsubmit event listener that calls sumbit todo. submitTodo is a attribute  -->
+      <input type="text" id="new-todo" placeholder="What needs to be done?"> <!-- type = attribute = specify type - lookup attributes in documentation  -->
     </form>
-
 
     <ul id="todolist">
       <li class="todo">
@@ -103,13 +103,13 @@
       <a href="#" onclick="cleanUpDoneTodos(); return false">Clean up</a>
     </div>
   </div>
-
+<!-- text -->
   <script>
     function updateCounters() {
     // Total number of todos
-    var totalCount = document.getElementById('total-count');
-    var totalTodos = document.getElementsByClassName("todo").length;
-    totalCount.innerHTML = totalTodos;
+    var totalCount = document.getElementById('total-count'); <!-- declaring a variable totalCount, we call getElementById method passing argument total count -->
+    var totalTodos = document.getElementsByClassName("todo").length; // 2
+    totalCount.innerHTML = totalTodos; <!-- we modify the html inn totalcount dom manipulation  -->
 
     // Total number of completed todos
     var completedCount = document.getElementById('completed-count');
@@ -131,7 +131,7 @@
     // check the checked status of the checkbox
     if (checkbox.checked) {
     // the "completed" class is set on the parent element, the <li>
-    checkbox.parentElement.className = "todo completed";
+    checkbox.parentElement.className = "todo completed"; <!-- iff you change the clasname off an element so that css can change the look off it -->
     } else {
     checkbox.parentElement.className = "todo";
     }
@@ -142,7 +142,7 @@
     function submitTodo() {
     var inputField = document.getElementById("new-todo");
     var newTodoTitle = inputField.value;
-    createTodo(newTodoTitle);
+    createTodo(newTodoTitle); <!-- calling a functionn //=> argument  -->
     // reset the value of the inputField to make it empty and
     // ready to create new todos
     inputField.value = null;
@@ -151,7 +151,7 @@
   console.log(submitTodo)
 }
 
-    function createTodo(title) {
+    function createTodo(title) { <!-- defining a functionn //=> parameter -->
     // create a list item
     var listItem = document.createElement("li");
     listItem.className = "todo";
@@ -195,11 +195,10 @@
     for (var i = doneItems.length; i > 0; i--) {
     list.removeChild(doneItems[i-1]);
     }
-    //   updateCounters();
+updateCounters();
+
 }
   </script>
-
-
 
 </body>
 </html>
